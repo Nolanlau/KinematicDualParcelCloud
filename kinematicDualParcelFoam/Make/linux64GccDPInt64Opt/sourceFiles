@@ -1,0 +1,4 @@
+SOURCE = \
+kinematicDualParcelFoam.C \
+
+# sources

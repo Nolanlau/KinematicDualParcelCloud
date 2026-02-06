@@ -1,0 +1,3 @@
+kinematicDualParcelFoam.C
+
+EXE = $(FOAM_APPBIN)/kinematicParcelFoam
