@@ -1,0 +1,141 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      mainCloudProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solution
+{
+    active         true;
+    coupled        true;
+    transient      yes;
+    cellValueSourceCorrection on;
+
+    interpolationSchemes
+    {
+        rho         cell;
+        U           cellPoint;
+        mu          cell;
+        muc         cell;
+    }
+
+    integrationSchemes
+    {
+        U               Euler;
+    }
+
+    sourceTerms
+    {
+        schemes
+        {
+            U semiImplicit 1;
+        }
+    }
+}
+
+constantProperties
+{
+    parcelTypeId 1;
+
+    rho0            1000;
+
+}
+
+subModels
+{
+    particleForces
+    {
+        sphereDrag;
+        gravity;
+    }
+
+    injectionModels
+    {
+        model1
+        {
+            type            coneInjection;
+            parcelBasisType fixed;
+            positionAxis   (
+              ((0.03000 0.00200 0) (0 -1 0))
+              ((0.03030 0.00200 0) (0 -1 0))
+              ((0.03060 0.00200 0) (0 -1 0))
+              ((0.03090 0.00200 0) (0 -1 0))
+              ((0.03120 0.00200 0) (0 -1 0))
+              ((0.03150 0.00200 0) (0 -1 0))
+              ((0.03180 0.00200 0) (0 -1 0))
+              ((0.03210 0.00200 0) (0 -1 0))
+              ((0.03240 0.00200 0) (0 -1 0))
+              ((0.03270 0.00200 0) (0 -1 0))
+              ((0.03300 0.00200 0) (0 -1 0))
+              ((0.03330 0.00200 0) (0 -1 0))
+              ((0.03360 0.00200 0) (0 -1 0))
+              ((0.03390 0.00200 0) (0 -1 0))
+              ((0.03420 0.00200 0) (0 -1 0))
+              ((0.03450 0.00200 0) (0 -1 0))
+              ((0.03750 0.00200 0) (0 -1 0))
+              ((0.03780 0.00200 0) (0 -1 0))
+              ((0.03810 0.00200 0) (0 -1 0))
+              ((0.03840 0.00200 0) (0 -1 0))
+              ((0.03870 0.00200 0) (0 -1 0))
+              ((0.03900 0.00200 0) (0 -1 0))
+              ((0.03930 0.00200 0) (0 -1 0))
+              ((0.03960 0.00200 0) (0 -1 0))
+              ((0.03990 0.00200 0) (0 -1 0))
+              ((0.04020 0.00200 0) (0 -1 0))
+              ((0.04050 0.00200 0) (0 -1 0))
+              ((0.04080 0.00200 0) (0 -1 0))
+              ((0.04110 0.00200 0) (0 -1 0))
+              ((0.04140 0.00200 0) (0 -1 0))
+              ((0.04170 0.00200 0) (0 -1 0))
+              ((0.04200 0.00200 0) (0 -1 0))
+            );
+            thetaInner      constant 0;
+            thetaOuter      constant 0;
+            Umag constant 10;
+            nParticle       1;
+            parcelsPerInjector 200000;
+            duration        5.0;
+
+            flowRateProfile constant 1;
+            massTotal  200000000;
+            SOI            0;
+
+            sizeDistribution
+            {
+                type uniform;
+                uniformDistribution
+                {
+                    minValue        2.2e-5;
+                    maxValue        2.2e-5;
+                    abscissaType   diameter;
+                }
+            }
+
+        }
+
+    }
+
+    dispersionModel none;
+
+    patchInteractionModel standardWallInteraction;
+
+    standardWallInteractionCoeffs
+    {
+        type            stick;
+    }
+
+    surfaceFilmModel none;
+
+    collisionModel none;
+
+    stochasticCollisionModel none;
+}
+
+cloudFunctions
+{
+ }
+
+// ************************************************************************* //
