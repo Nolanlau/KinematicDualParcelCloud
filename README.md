@@ -27,9 +27,9 @@ This dual-cloud approach provides significant computational efficiency when simu
 
 3. **Verify installation**:
    ```bash
-   which kinematicParcelFoam
+   which kinematicDualParcelFoam
    ```
-   The compiled executable will be located in `$FOAM_APPBIN/kinematicParcelFoam`
+   The compiled executable will be located in `$FOAM_APPBIN/kinematicDualParcelFoam`
 
 ### Build Details
 
