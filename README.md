@@ -3,7 +3,7 @@ A custom OpenFOAM solver for transient incompressible, turbulent flow with dual 
 
 ## Overview
 
-**kinematicDualParcelFoam** is a Lagrangian-Eulerian CFD solver built on OpenFOAM and largely based on kinematicParcelFoam. It enables simultaneous simulation of two independent particle clouds within the same incompressible flow field:
+**kinematicDualParcelFoam** is a Euler-Lagrange CFD solver built on OpenFOAM and largely based on kinematicParcelFoam. It enables simultaneous simulation of two independent particle clouds within the same incompressible flow field:
 
 - **mainCloud**: Actively coupled to the flow field and can contribute source terms to the momentum equation.
 - **satelliteCloud**: Evolved independently without affecting the flow field (useful for passive tracer particles or low-mass secondary clouds).
